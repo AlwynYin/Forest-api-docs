@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: Mock API
+  version: 1.0.0
+  description: Mock API for Forest tree-structured editor
+servers:
+  - url: http://localhost:3001
+    description: Development server
+paths:
+  /api/hello:
+    get:
+      summary: Hello World
+      description: Simple hello world endpoint
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hello from Forest API Docs server!"
+  /api/users:
+    get:
+      summary: Get all users
+      description: Retrieve a list of all users
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "John Doe"
+                    email:
+                      type: string
+                      format: email
+                      example: "john@example.com"
+    post:
+      summary: Create a new user
+      description: Create a new user with name and email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "John Doe"
+                email:
+                  type: string
+                  format: email
+                  example: "john@example.com"
+              required:
+                - name
+                - email
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1625097600000
+                  name:
+                    type: string
+                    example: "John Doe"
+                  email:
+                    type: string
+                    format: email
+                    example: "john@example.com"
+  /api/trees:
+    get:
+      summary: Get all trees
+      description: Retrieve a list of all tree structures
+      responses:
+        '200':
+          description: List of trees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "Project Planning"
+                    nodes:
+                      type: integer
+                      example: 15
+    post:
+      summary: Create a new tree
+      description: Create a new tree structure
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "New Project"
+                description:
+                  type: string
+                  example: "A new project tree"
+              required:
+                - name
+      responses:
+        '201':
+          description: Tree created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1625097600000
+                  name:
+                    type: string
+                    example: "New Project"
+                  description:
+                    type: string
+                    example: "A new project tree"
+                  nodes:
+                    type: integer
+                    example: 0
+  /api/trees/{id}:
+    get:
+      summary: Get a specific tree
+      description: Retrieve details of a specific tree by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Tree ID
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Tree details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: "Sample Tree"
+                  description:
+                    type: string
+                    example: "A sample tree structure"
+                  nodes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: "Root Node"
+                        content:
+                          type: string
+                          example: "This is the root"
