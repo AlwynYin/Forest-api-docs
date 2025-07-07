@@ -1,7 +1,7 @@
 import React from 'react';
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { ApiEndpoint } from '../../utils/apiParser';
 
 interface SingleOperationSwaggerProps {
@@ -60,36 +60,6 @@ const SingleOperationSwagger: React.FC<SingleOperationSwaggerProps> = ({
     }
   });
 
-  // Custom layout component that hides unnecessary chrome
-  const OperationOnlyLayout = () => {
-    return (
-      <div className="swagger-ui">
-        <div className="information-container wrapper">
-          <section className="clear">
-            <div className="operations-tag">
-              <div className="operation-tag-content">
-                <div id="operations-tag-default">
-                  <div className="operation-container">
-                    <div className="opblock opblock-{endpoint.method.toLowerCase()} is-open">
-                      <div className="opblock-section">
-                        <div className="opblock-section-header">
-                          <div className="opblock-summary">
-                            <div className="opblock-summary-description">
-                              Operation details and Try It interface will render here
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <Box

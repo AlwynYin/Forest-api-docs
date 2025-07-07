@@ -81,15 +81,6 @@ const ApiTreeViewer: React.FC = () => {
     setSelectedEndpoint(endpoint);
   };
 
-  const handleTestEndpoint = (endpoint: ApiEndpoint) => {
-    // TODO: Implement test functionality
-    console.log('Testing endpoint:', endpoint);
-  };
-
-  const handleViewSchema = (endpoint: ApiEndpoint) => {
-    // TODO: Implement schema view functionality
-    console.log('Viewing schema for:', endpoint);
-  };
 
   if (loading) {
     return (
