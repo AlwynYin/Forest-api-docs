@@ -94,6 +94,15 @@ const SingleOperationSwagger: React.FC<SingleOperationSwaggerProps> = ({
         '& .swagger-ui .operations-tag > h4': {
           display: 'none', // Hide tag title
         },
+        '& .swagger-ui .models': {
+          display: 'none', // Hide Models dropdown/section
+        },
+        '& .swagger-ui .model-box': {
+          display: 'none', // Hide model boxes
+        },
+        // '& .swagger-ui .model': {
+        //   display: 'none', // Hide individual models
+        // },
         '& .swagger-ui .opblock': {
           marginBottom: '10px',
           border: 'none',
@@ -119,7 +128,7 @@ const SingleOperationSwagger: React.FC<SingleOperationSwaggerProps> = ({
         defaultModelsExpandDepth={0}
         defaultModelExpandDepth={0}
         defaultModelRendering="example"
-        docExpansion="none"
+        docExpansion="list"
         filter={false}
         showExtensions={false}
         showCommonExtensions={false}
